@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link href="bootstrap.min.css" rel="stylesheet" />
+
+  <title>HTWK Extension</title>
+  <style>
+    body {
+      background-image: linear-gradient(to right, aliceblue, antiquewhite);
+      background-size: cover;
+      height: max-content;
+      width: max-content;
+      color: slategray;
+    }
+
+    select {
+      max-width: 20rem;
+      padding-left: 0;
+    }
+
+    .group_width {
+      max-width: 20rem;
+      padding-left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="p-4">
+    <h1>OPAL Extension</h1>
+    <h5 class="my-3">General Settings</h5>
+    <div class="input-group mb-3">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="onOff" checked />
+        <label class="form-check-label" for="onOff">Enable extension</label>
+      </div>
+    </div>
+    <div class="input-group mb-3">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="audioSwitch" checked />
+        <label class="form-check-label" for="audioSwitch">Audio</label>
+      </div>
+    </div>
+    <hr>
+    <div class="input-group mb-3">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="autologin" checked />
+        <label class="form-check-label" for="autologin">Autologin</label>
+      </div>
+    </div>
+    <div class="input-group mb-3">
+      <select class="form-check form-select" id="institution">
+        <option value="-1" selected>Select your institution</option>
+        <option value="0">BA Dresden</option>
+        <option value="1">BA Glauchau</option>
+        <option value="2">Staatliche Studienakademie Leipzig</option>
+        <option value="3">BA-Plauen</option>
+        <option value="4">Staatliche Studienakademie Riesa</option>
+        <option value="5">Berufsakademie Sachsen</option>
+        <option value="6">HFM Dresden</option>
+        <option value="7">HS Mittweida</option>
+        <option value="8">HS Zittau / Görlitz</option>
+        <option value="9">HTW Dresden</option>
+        <option value="10">HTWK Leipzig</option>
+        <option value="11">SLUB Dresden</option>
+        <option value="12">Staatliche Studienakademie Bautzen</option>
+        <option value="13">Sächsische Verwaltungs- und Wirtschafts-Akademie</option>
+        <option value="14">TU Bergakademie Freiberg</option>
+        <option value="15">TU Chemnitz</option>
+        <option value="16">TU Dresden</option>
+        <option value="17">Universität Leipzig</option>
+        <option value="18">Westsächsische Hochschule Zwickau</option>
+        <option value="19">Palucca Hochschule für Tanz Dresden</option>
+        <option value="20">VHO der BPS Bildungsportal Sachsen GmbH</option>
+      </select>
+    </div>
+    <div class="input-group group_width mb-3">
+      <div class="form-floating">
+        <input class="form-control" type="text" id="username">
+        <label for="username">Username</label>
+      </div>
+      <div class="form-floating">
+        <input class="form-control" type="password" id="password">
+        <label for="password">Password</label>
+      </div>
+    </div>
+    <hr>
+    <h5 class="my-3">Reload Settings</h5>
+    <div class="mb-3">
+      <label for="delay" class="form-label">delay in ms</label>
+      <input type="number" class="form-control" id="delay" value="300" aria-describedby="delay in ms">
+    </div>
+    <hr>
+    <button class="btn btn-outline-secondary" type="button" id="restoreDefault">Restore default</button>
+  </div>
+
+  <script src="crypto-js.min.js"></script>
+  <script src="popup.js"></script>
+  <script src="bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

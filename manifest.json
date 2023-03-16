@@ -1,0 +1,50 @@
+{
+  "name": "OPAL Extension",
+  "description": "Simplifies and adds features to OPAL",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://bildungsportal.sachsen.de/opal/home*", "https://bildungsportal.sachsen.de/opal/shiblogin*"],
+      "js": ["jquery.js", "login.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://*.sachsen.de/*"],
+      "js": ["jquery.js", "autorefresh.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://*/idp/profile/SAML2/Redirect/SSO*"],
+      "js": ["jquery.js", "crypto-js.min.js", "redirect.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://www.w3.org/People/mimasa/*"],
+      "js": ["ics-to-json.js", "getCalendar.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": ["storage", "webNavigation","activeTab", "scripting", "tabs", "alarms", "background"],
+  "host_permissions": ["http://*.sachsen.de/*", "https://*.sachsen.de/*", "https://shib1.rz.htwk-leipzig.de/*", "http://www.htwk-stundenplan.de/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/images/icon16.png",
+      "32": "/images/icon32.png",
+      "48": "/images/icon48.png",
+      "128": "/images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "/images/icon16.png",
+    "32": "/images/icon32.png",
+    "48": "/images/icon48.png",
+    "128": "/images/icon128.png"
+  }
+}
