@@ -29,11 +29,13 @@ function main() {
                     let $username = $("input#username")
                     let $password = $("input#password")
 
-                    if (result["username"] != '' && result["password"] != '') {
+                    if (result["username"] != '' && result["password"] != '' && $username.length && $password.length) {
                         $username.val(decrypt(result["username"]))
                         $password.val(decrypt(result["password"]))
                         chrome.storage.sync.set({ lastLogin: Date.now() })
-                        $("button[name='_eventId_proceed'][type='submit']").click() //.trigger("click")
+                        const host = window.location.host
+                        if(host == "qisserver.htwk-leipzig.de" || host == "groupware.htwk-leipzig.de") $("input[type='submit']").click()
+                        else $("button[name='_eventId_proceed'][type='submit']").click() //.trigger("click")
                     }
 
                 }, 1000);

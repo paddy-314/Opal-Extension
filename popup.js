@@ -6,8 +6,10 @@ let username = document.getElementById('username')
 let password = document.getElementById('password')
 let delay = document.getElementById('delay')
 let restore = document.getElementById('restoreDefault')
+let reminderSwitch = document.getElementById('reminderSwitch')
+let calendarlink = document.getElementById('calendarlink')
 
-let buttonList = [onOff, audioSwitch, autologin, institution, username, password, delay]
+let buttonList = [onOff, audioSwitch, autologin, institution, username, password, delay, reminderSwitch, calendarlink]
 
 const defaultValues = {
   onOffDefault: true,
@@ -16,10 +18,12 @@ const defaultValues = {
   institutionDefault: '-1',
   usernameDefault: '',
   passwordDefault: '',
-  delayDefault: '1000'
+  delayDefault: '1000',
+  reminderSwitch: true,
+  calendarlink: ''
 }
 
-let values = ['onOff', 'audioSwitch', 'autologin', 'institution', 'username', 'password', 'delay']
+let values = ['onOff', 'audioSwitch', 'autologin', 'institution', 'username', 'password', 'delay', 'reminderSwitch', 'calendarlink']
 
 async function setPreference(element) {
   chrome.storage.sync.get([element.id], function (result) {

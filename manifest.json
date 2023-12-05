@@ -14,23 +14,28 @@
       "run_at": "document_idle"
     },
     {
-      "matches": ["https://*.sachsen.de/*"],
+      "matches": ["https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry*"],
       "js": ["jquery.js", "autorefresh.js"],
       "css": ["content.css"],
       "run_at": "document_idle"
     },
     {
-      "matches": ["https://*/idp/profile/SAML2/Redirect/SSO*"],
+      "matches": ["https://bildungsportal.sachsen.de/opal/auth/resource/courses*"],
+      "js": ["jquery.js", "courses.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://*/idp/profile/SAML2/Redirect/SSO*", "https://qisserver.htwk-leipzig.de/qisserver*", "https://groupware.htwk-leipzig.de/*"],
       "js": ["jquery.js", "crypto-js.min.js", "redirect.js"],
       "run_at": "document_idle"
     },
     {
-      "matches": ["https://www.w3.org/People/mimasa/*"],
+      "matches": ["https://www.w3.org/*"],
       "js": ["ics-to-json.js", "getCalendar.js"],
       "run_at": "document_idle"
     }
   ],
-  "permissions": ["storage", "webNavigation","activeTab", "scripting", "tabs", "alarms", "background"],
+  "permissions": ["storage", "webNavigation","activeTab", "scripting", "tabs", "alarms", "background", "notifications", "unlimitedStorage"],
   "host_permissions": ["http://*.sachsen.de/*", "https://*.sachsen.de/*", "https://shib1.rz.htwk-leipzig.de/*", "http://www.htwk-stundenplan.de/*"],
   "action": {
     "default_popup": "popup.html",

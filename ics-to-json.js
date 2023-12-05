@@ -30,7 +30,7 @@ const icsToJson = icsData => {
     let isAlarm = false;
     for (let i = 0, iLen = lines.length; i < iLen; ++i) {
         const line = lines[i];
-        const lineData = line.split(":");
+        const lineData = line.split(/:(.*)/s);
 
         let key = lineData[0];
         const value = lineData[1];
@@ -76,6 +76,7 @@ const icsToJson = icsData => {
                 break;
             case LOCATION:
                 currentObj[keyMap[LOCATION]] = clean(value);
+                break;
             default:
                 continue;
         }
